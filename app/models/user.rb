@@ -1,8 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  # rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :email, presence: true, uniqueness: true
-  # rubocop:enable Rails/UniqueValidationWithoutIndex
   validates :name, presence: true
 
   validates :health, numericality: { only_integer: true }
